@@ -3,6 +3,12 @@
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Dashboard') }}
         </h2>
+        @if (auth()->user()->role === 'admin')
+            <a href="{{ route('products.create') }}" class="btn btn-primary">
+                Dodaj Produkt
+            </a>
+        @endif
+
     </x-slot>
 
     <div class="py-12">
