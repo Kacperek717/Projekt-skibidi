@@ -9,6 +9,13 @@
             </a>
         @endif
 
+        @if (Auth::check())
+            <div class="flex items-center space-x-4">
+                <span>Punkty: {{ Auth::user()->punkty }}</span>
+            </div>
+        @endif
+
+
     </x-slot>
 
     <div class="py-12">
