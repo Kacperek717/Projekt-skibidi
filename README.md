@@ -23,7 +23,7 @@
 
 3. Skopiuj plik `.env.example` do `.env`:
    ```bash
-   cp .env.example .env
+   cp .env .env
    ```
 
 4. Wygeneruj klucz aplikacji:
