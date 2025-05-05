@@ -51,6 +51,15 @@
                             <p class="text-sm {{ $product->polubiony ? 'text-green-400' : 'text-red-400' }}">
                                 {{ $product->polubiony ? 'Polubiony' : 'Niepolubiony' }}
                             </p>
+
+                            <form method="POST" action="{{ route('cart.add', $product->id) }}" x-data="{ added: false }" @submit.prevent="fetch($el.action, { method: 'POST', headers: { 'X-CSRF-TOKEN': '{{ csrf_token() }}' } }).then(() => added = true)">
+                                @csrf
+                                <button type="submit"
+                                        :class="added ? 'bg-green-700' : 'bg-green-500'"
+                                        class="hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-full transition"
+                                        x-text="added ? 'Dodano do koszyka' : 'Dodaj do koszyka'">
+                                </button>
+                            </form>
                         </div>
                     </div>
                 @endforeach

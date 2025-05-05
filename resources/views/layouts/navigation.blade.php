@@ -15,6 +15,15 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    <a href="{{ route('cart.index') }}" class="relative bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Koszyk
+                        <span class="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full px-2">
+                            {{ session('cart') ? count(session('cart')) : 0 }}
+                        </span>
+                    </a>
+
+
                 </div>
             </div>
 
